@@ -1,6 +1,11 @@
 __pycache__/
 *.py[cod]
 
+.pytest_cache/
+.coverage
+htmlcov/
+.ruff_cache/
+
 codex-session-bridge-all-report*.json
 codex-session-bridge-backups/
 
