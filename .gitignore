@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+
+codex-session-bridge-all-report*.json
+codex-session-bridge-backups/
+
+.DS_Store
+Thumbs.db
