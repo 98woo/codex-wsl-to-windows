@@ -1,0 +1,11 @@
+[project]
+name = "codex-wsl-to-windows"
+version = "0.2.0"
+description = "Bridge WSL-recorded Codex session paths for Windows-native Codex App"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
