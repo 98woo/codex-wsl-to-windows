@@ -1,6 +1,6 @@
 $ErrorActionPreference = "Stop"
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
-$PythonScript = Join-Path $ScriptDir "tools\codex_session_path_bridge_all_win_safe.py"
+$PythonScript = Join-Path $ScriptDir "tools\codex_session_path_bridge_all_win_guarded.py"
 $BridgeArgs = $args
 
 if (-not (Test-Path $PythonScript)) {
