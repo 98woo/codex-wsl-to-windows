@@ -8,6 +8,7 @@ Thanks for improving Codex Session Bridge.
 python -m pip install pytest
 python -m py_compile tools/codex_session_path_bridge_all_win.py
 python -m py_compile tools/codex_session_path_bridge_all_win_safe.py
+python -m py_compile tools/codex_session_path_bridge_all_win_guarded.py
 python -m pytest -q
 ```
 

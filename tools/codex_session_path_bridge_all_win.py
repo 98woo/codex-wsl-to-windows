@@ -15,6 +15,7 @@ files from the generated backup directory.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import os
 import shutil
@@ -522,5 +523,24 @@ def main(argv: list[str] | None = None) -> int:
     return args.func(args)
 
 
+def run_guarded_entrypoint(argv: list[str] | None = None) -> int:
+    """Delegate direct legacy execution to the guarded public entrypoint."""
+    guarded_path = Path(__file__).resolve().with_name("codex_session_path_bridge_all_win_guarded.py")
+    if not guarded_path.exists():
+        print(
+            "WARNING: guarded entrypoint was not found; running the legacy implementation directly.",
+            file=sys.stderr,
+        )
+        return main(argv)
+
+    spec = importlib.util.spec_from_file_location("codex_session_bridge_guarded_entrypoint", guarded_path)
+    if spec is None or spec.loader is None:
+        raise RuntimeError(f"Cannot load guarded bridge script: {guarded_path}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = module
+    spec.loader.exec_module(module)
+    return module.main(argv)
+
+
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(run_guarded_entrypoint())

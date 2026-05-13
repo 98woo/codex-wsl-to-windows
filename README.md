@@ -134,7 +134,7 @@ safe mode는 JSON 전체에서 경로처럼 보이는 문자열을 무작정 바
 `/home/...` 경로는 기본적으로 `\\wsl.localhost\Ubuntu\home\...`로 변환됩니다. 실제 WSL 배포판 이름이 `Ubuntu-24.04`, `Debian` 등이라면 `--distro`를 지정하세요.
 
 ```powershell
-.\codex-session-bridge-all.cmd migrate-all --include-archived --distro Ubuntu-24.04
+.\codex-session-bridge-all.cmd --distro Ubuntu-24.04 migrate-all --include-archived
 ```
 
 `session_index.jsonl`은 현재 백업 대상이지만 변환 대상은 아닙니다. 이 파일에 경로 정보가 포함된 Codex 버전이 확인되면 후속 버전에서 변환 대상으로 추가할 수 있습니다.
@@ -170,6 +170,8 @@ codex-session-bridge/
 ```
 
 이 저장소에는 리포트와 백업 파일을 커밋하지 마세요.
+
+`tools/codex_session_path_bridge_all_win.py`는 호환성을 위해 남겨 둔 legacy 구현 파일입니다. 일반 사용자는 `codex-session-bridge-all.cmd`를 실행하세요. legacy 파일을 직접 실행해도 guarded 엔트리포인트로 위임됩니다.
 
 ## 개발
 
