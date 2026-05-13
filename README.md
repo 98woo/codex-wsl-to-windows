@@ -166,6 +166,7 @@ codex-session-bridge/
   tools/
     codex_session_path_bridge_all_win.py
     codex_session_path_bridge_all_win_safe.py
+    codex_session_path_bridge_all_win_guarded.py
 ```
 
 이 저장소에는 리포트와 백업 파일을 커밋하지 마세요.
@@ -184,4 +185,5 @@ python -m pytest -q
 ```bash
 python -m py_compile tools/codex_session_path_bridge_all_win.py
 python -m py_compile tools/codex_session_path_bridge_all_win_safe.py
+python -m py_compile tools/codex_session_path_bridge_all_win_guarded.py
 ```
